@@ -1,0 +1,2056 @@
+diff --git a/Loop/Loop.xcodeproj/project.pbxproj b/Loop/Loop.xcodeproj/project.pbxproj
+index 005d0e0..31d8783 100644
+--- a/Loop/Loop.xcodeproj/project.pbxproj
++++ b/Loop/Loop.xcodeproj/project.pbxproj
+@@ -71,6 +71,8 @@
+ 		1DDE273E24AEA4B000796622 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE09BA824A3E23F009EE9F9 /* SettingsView.swift */; };
+ 		1DDE274024AEA4F200796622 /* NotificationsCriticalAlertPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA46B5F2492E2E300D71A63 /* NotificationsCriticalAlertPermissionsView.swift */; };
+ 		1DFE9E172447B6270082C280 /* UserNotificationAlertSchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFE9E162447B6270082C280 /* UserNotificationAlertSchedulerTests.swift */; };
++		283C80605DB503F3A2E65D00 /* LoopWiseMealCaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74257CBB544CC0DFCB5508D /* LoopWiseMealCaptureManager.swift */; };
++		3AD74241D9633F57ABC79941 /* LoopWiseMealCaptureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9554B865676FDFDB69EADC /* LoopWiseMealCaptureTests.swift */; };
+ 		3ED3198A2EB659E600820BCF /* GlucoseLiveActivityConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED319882EB659E600820BCF /* GlucoseLiveActivityConfiguration.swift */; };
+ 		3ED3198B2EB659E600820BCF /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED319872EB659E600820BCF /* ChartView.swift */; };
+ 		3ED3198C2EB659E600820BCF /* BasalViewActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED319862EB659E600820BCF /* BasalViewActivity.swift */; };
+@@ -206,6 +208,7 @@
+ 		43FCEEA9221A615B0013DD30 /* StatusChartsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCEEA8221A615B0013DD30 /* StatusChartsManager.swift */; };
+ 		43FCEEAD221A66780013DD30 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCEEAC221A66780013DD30 /* DateFormatter.swift */; };
+ 		43FCEEB1221A863E0013DD30 /* StatusChartsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCEEB0221A863E0013DD30 /* StatusChartsManager.swift */; };
++		4C911F3A35329C3A2AB3284E /* LoopWiseMealCaptureViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A0B9609312B8587103B1B49 /* LoopWiseMealCaptureViews.swift */; };
+ 		4F08DE8F1E7BB871006741EA /* CollectionType+Loop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F08DE8E1E7BB871006741EA /* CollectionType+Loop.swift */; };
+ 		4F11D3C020DCBEEC006E072C /* GlucoseBackfillRequestUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F11D3BF20DCBEEC006E072C /* GlucoseBackfillRequestUserInfo.swift */; };
+ 		4F11D3C220DD80B3006E072C /* WatchHistoricalGlucose.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F11D3C120DD80B3006E072C /* WatchHistoricalGlucose.swift */; };
+@@ -780,6 +783,7 @@
+ 		14B1737028AEDBF6006CCD7C /* GlucoseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlucoseView.swift; sourceTree = "<group>"; };
+ 		14B1737128AEDBF6006CCD7C /* LoopCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopCircleView.swift; sourceTree = "<group>"; };
+ 		14D906F32A846510006EB79A /* FavoriteFoodsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFoodsViewModel.swift; sourceTree = "<group>"; };
++		1A0B9609312B8587103B1B49 /* LoopWiseMealCaptureViews.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoopWiseMealCaptureViews.swift; sourceTree = "<group>"; };
+ 		1D05219A2469E9DF000EBBDE /* StoredAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredAlert.swift; sourceTree = "<group>"; };
+ 		1D05219C2469F1F5000EBBDE /* AlertStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertStore.swift; sourceTree = "<group>"; };
+ 		1D080CBC2473214A00356610 /* AlertStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlertStore.xcdatamodel; sourceTree = "<group>"; };
+@@ -992,6 +996,7 @@
+ 		4F7E8AC420E2AB9600AEA65E /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+ 		4F7E8AC620E2AC0300AEA65E /* WatchPredictedGlucose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPredictedGlucose.swift; sourceTree = "<group>"; };
+ 		4F82654F20E69F9A0031A8F5 /* HUDInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUDInterfaceController.swift; sourceTree = "<group>"; };
++		4F9554B865676FDFDB69EADC /* LoopWiseMealCaptureTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoopWiseMealCaptureTests.swift; sourceTree = "<group>"; };
+ 		4FC8C8001DEB93E400A1452E /* NSUserDefaults+StatusExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserDefaults+StatusExtension.swift"; sourceTree = "<group>"; };
+ 		4FDDD23620DC51DF00D04B16 /* LoopDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopDataManager.swift; sourceTree = "<group>"; };
+ 		4FF4D0FF1E18374700846527 /* WatchContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchContext.swift; sourceTree = "<group>"; };
+@@ -1324,6 +1329,7 @@
+ 		C1F8B1DB223862D500DD66CF /* BolusProgressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BolusProgressTableViewCell.xib; sourceTree = "<group>"; };
+ 		C1FB428B217806A300FAB378 /* StateColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateColorPalette.swift; sourceTree = "<group>"; };
+ 		C1FB428E217921D600FAB378 /* PumpManagerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumpManagerUI.swift; sourceTree = "<group>"; };
++		C74257CBB544CC0DFCB5508D /* LoopWiseMealCaptureManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoopWiseMealCaptureManager.swift; sourceTree = "<group>"; };
+ 		DD3DBD282A33AFE9000F8B5B /* IntegralRetrospectiveCorrectionSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegralRetrospectiveCorrectionSelectionView.swift; sourceTree = "<group>"; };
+ 		DDC389F52A2B61750066E2E8 /* ApplicationFactorStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFactorStrategy.swift; sourceTree = "<group>"; };
+ 		DDC389F72A2B620B0066E2E8 /* GlucoseBasedApplicationFactorStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlucoseBasedApplicationFactorStrategy.swift; sourceTree = "<group>"; };
+@@ -1998,6 +2004,7 @@
+ 				C1AF062229426300002C1B19 /* ManualGlucoseEntryRow.swift */,
+ 				DDC389FD2A2C4C830066E2E8 /* GlucoseBasedApplicationFactorSelectionView.swift */,
+ 				DD3DBD282A33AFE9000F8B5B /* IntegralRetrospectiveCorrectionSelectionView.swift */,
++				1A0B9609312B8587103B1B49 /* LoopWiseMealCaptureViews.swift */,
+ 			);
+ 			path = Views;
+ 			sourceTree = "<group>";
+@@ -2043,6 +2050,7 @@
+ 				A96DAC2B2838F31200D94E38 /* SharedLogging.swift */,
+ 				7E69CFFB2A16A77E00203CBD /* ResetLoopManager.swift */,
+ 				84AA81E42A4A3981000B658B /* DeeplinkManager.swift */,
++				C74257CBB544CC0DFCB5508D /* LoopWiseMealCaptureManager.swift */,
+ 			);
+ 			path = Managers;
+ 			sourceTree = "<group>";
+@@ -2061,6 +2069,7 @@
+ 				A9DAE7CF2332D77F006AE942 /* LoopTests.swift */,
+ 				8968B113240C55F10074BB48 /* LoopSettingsTests.swift */,
+ 				E93E86AC24DDE02C00FF40C8 /* Mock Stores */,
++				4F9554B865676FDFDB69EADC /* LoopWiseMealCaptureTests.swift */,
+ 			);
+ 			path = LoopTests;
+ 			sourceTree = "<group>";
+@@ -3581,6 +3590,8 @@
+ 				7E69CFFC2A16A77E00203CBD /* ResetLoopManager.swift in Sources */,
+ 				B40D07C7251A89D500C1C6D7 /* GlucoseDisplay.swift in Sources */,
+ 				43C2FAE11EB656A500364AFF /* GlucoseEffectVelocity.swift in Sources */,
++				283C80605DB503F3A2E65D00 /* LoopWiseMealCaptureManager.swift in Sources */,
++				4C911F3A35329C3A2AB3284E /* LoopWiseMealCaptureViews.swift in Sources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -3763,6 +3774,7 @@
+ 				C1900900252271BB00721625 /* SimpleBolusCalculatorTests.swift in Sources */,
+ 				A9C1719725366F780053BCBD /* WatchHistoricalGlucoseTest.swift in Sources */,
+ 				E93E86B224DDE21D00FF40C8 /* MockCarbStore.swift in Sources */,
++				3AD74241D9633F57ABC79941 /* LoopWiseMealCaptureTests.swift in Sources */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+diff --git a/Loop/Loop/AppDelegate.swift b/Loop/Loop/AppDelegate.swift
+index ebb05d5..5d5a3c7 100644
+--- a/Loop/Loop/AppDelegate.swift
++++ b/Loop/Loop/AppDelegate.swift
+@@ -25,6 +25,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, WindowProvider {
+         log.default("lastPathComponent = %{public}@", String(describing: Bundle.main.appStoreReceiptURL?.lastPathComponent))
+ 
+         loopAppManager.initialize(windowProvider: self, launchOptions: launchOptions)
++        LoopWiseMealCaptureManager.shared.start()
+         loopAppManager.launch()
+         return loopAppManager.isLaunchComplete
+     }
+@@ -35,6 +36,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, WindowProvider {
+         log.default(#function)
+ 
+         loopAppManager.didBecomeActive()
++        LoopWiseMealCaptureManager.shared.retryPending()
+     }
+ 
+     func applicationWillResignActive(_ application: UIApplication) {
+diff --git a/Loop/Loop/Info.plist b/Loop/Loop/Info.plist
+index db76e6e..eef75ef 100644
+--- a/Loop/Loop/Info.plist
++++ b/Loop/Loop/Info.plist
+@@ -62,7 +62,7 @@
+ 	<key>NSBluetoothPeripheralUsageDescription</key>
+ 	<string>The app needs to use Bluetooth to send and receive data from your diabetes devices.</string>
+ 	<key>NSCameraUsageDescription</key>
+-	<string>Camera is used to scan barcodes of devices.</string>
++	<string>Camera is used to scan device barcodes and optionally photograph meals for LoopWise.</string>
+ 	<key>NSFaceIDUsageDescription</key>
+ 	<string>Face ID is used to authenticate insulin bolus and to save changes to therapy settings.</string>
+ 	<key>NSHealthShareUsageDescription</key>
+diff --git a/Loop/Loop/InfoPlist.xcstrings b/Loop/Loop/InfoPlist.xcstrings
+index 7fd3d72..c69abe2 100644
+--- a/Loop/Loop/InfoPlist.xcstrings
++++ b/Loop/Loop/InfoPlist.xcstrings
+@@ -596,85 +596,85 @@
+         "da" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "Kamera bruges til at scanne stregkoder på enheder."
++            "value" : "Kameraet bruges til at scanne enheders stregkoder og valgfrit fotografere måltider til LoopWise."
+           }
+         },
+         "de" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "Die Kamera wird verwendet, um Barcodes von Geräten zu scannen."
++            "value" : "Die Kamera wird verwendet, um Geräte-Barcodes zu scannen und optional Mahlzeiten für LoopWise zu fotografieren."
+           }
+         },
+         "en" : {
+           "stringUnit" : {
+             "state" : "new",
+-            "value" : "Camera is used to scan barcodes of devices."
++            "value" : "Camera is used to scan device barcodes and optionally photograph meals for LoopWise."
+           }
+         },
+         "es" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "La cámara se utiliza para escanear los códigos de barras de los dispositivos."
++            "value" : "La cámara se utiliza para escanear códigos de barras de dispositivos y, opcionalmente, fotografiar comidas para LoopWise."
+           }
+         },
+         "fr" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "La caméra est utilisée pour scanner les codes-barres des appareils."
++            "value" : "L’appareil photo est utilisé pour scanner les codes-barres des appareils et, facultativement, photographier des repas pour LoopWise."
+           }
+         },
+         "he" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "המצלמה משמשת לסריקת ברקודים של מכשירים."
++            "value" : "המצלמה משמשת לסריקת ברקודים של מכשירים ולצילום אופציונלי של ארוחות עבור LoopWise."
+           }
+         },
+         "it" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "La fotocamera è utilizzata per scansionare i codici a barre dei tuoi dispositivi."
++            "value" : "La fotocamera viene utilizzata per scansionare i codici a barre dei dispositivi e, facoltativamente, fotografare i pasti per LoopWise."
+           }
+         },
+         "nb" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "Kamera brukes til å skanne strekkoder på enheter."
++            "value" : "Kameraet brukes til å skanne strekkoder på enheter og valgfritt fotografere måltider for LoopWise."
+           }
+         },
+         "nl" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "Camera wordt gebruikt om barcodes van apparaten te scannen."
++            "value" : "De camera wordt gebruikt om barcodes van apparaten te scannen en optioneel maaltijden voor LoopWise te fotograferen."
+           }
+         },
+         "pl" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "Aparat służy do skanowania kodów kreskowych urządzeń."
++            "value" : "Aparat służy do skanowania kodów kreskowych urządzeń i opcjonalnego fotografowania posiłków dla LoopWise."
+           }
+         },
+         "ro" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "Camera este folosită pentru a scana codurile de bare ale dispozitivelor."
++            "value" : "Camera este folosită pentru a scana codurile de bare ale dispozitivelor și, opțional, pentru a fotografia mesele pentru LoopWise."
+           }
+         },
+         "ru" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "Камера используется для сканирования штрих-кодов устройств."
++            "value" : "Камера используется для сканирования штрихкодов устройств и, при желании, для фотографирования еды для LoopWise."
+           }
+         },
+         "sk" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "Fotoaparát sa používa na skenovanie čiarových kódov zariadení."
++            "value" : "Fotoaparát sa používa na skenovanie čiarových kódov zariadení a voliteľné fotografovanie jedál pre LoopWise."
+           }
+         },
+         "tr" : {
+           "stringUnit" : {
+             "state" : "translated",
+-            "value" : "Kamera, cihazların barkodlarını taramak için kullanılır."
++            "value" : "Kamera, cihaz barkodlarını taramak ve isteğe bağlı olarak LoopWise için öğünlerin fotoğrafını çekmek amacıyla kullanılır."
+           }
+         }
+       }
+@@ -1172,4 +1172,4 @@
+     }
+   },
+   "version" : "1.0"
+-}
+\ No newline at end of file
++}
+diff --git a/Loop/Loop/Managers/LoopWiseMealCaptureManager.swift b/Loop/Loop/Managers/LoopWiseMealCaptureManager.swift
+new file mode 100644
+index 0000000..06103b2
+--- /dev/null
++++ b/Loop/Loop/Managers/LoopWiseMealCaptureManager.swift
+@@ -0,0 +1,1085 @@
++//
++//  LoopWiseMealCaptureManager.swift
++//  Loop
++//
++//  Optional, non-therapy meal documentation upload for LoopWise.
++//
++
++import Combine
++import CryptoKit
++import Foundation
++import LoopKit
++import Security
++import UIKit
++
++struct LoopWiseMealCaptureDraft {
++    static let maximumNoteLength = 500
++    static let maximumNoteUTF8Bytes = 3500
++    static let maximumPhotoBytes = 12 * 1024 * 1024
++
++    let captureID: UUID
++    let note: String
++    let photo: UIImage?
++
++    init(captureID: UUID = UUID(), note: String, photo: UIImage?) {
++        self.captureID = captureID
++        self.note = Self.limitedNote(note)
++        self.photo = photo
++    }
++
++    var hasContent: Bool {
++        !note.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || photo != nil
++    }
++
++    static func limitedNote(_ value: String) -> String {
++        var scalars = String.UnicodeScalarView()
++        var scalarCount = 0
++        var utf8Count = 0
++        var utf16Count = 0
++
++        for scalar in value.unicodeScalars {
++            let scalarUTF8Count = String(scalar).utf8.count
++            let scalarUTF16Count = scalar.value > 0xFFFF ? 2 : 1
++            guard scalarCount < maximumNoteLength,
++                  utf8Count + scalarUTF8Count <= maximumNoteUTF8Bytes,
++                  utf16Count + scalarUTF16Count <= maximumNoteLength
++            else {
++                break
++            }
++            scalars.append(scalar)
++            scalarCount += 1
++            utf8Count += scalarUTF8Count
++            utf16Count += scalarUTF16Count
++        }
++
++        return String(scalars)
++    }
++
++    static func noteCharacterCount(_ value: String) -> Int {
++        limitedNote(value).utf16.count
++    }
++}
++
++enum LoopWiseMealPhotoEncoder {
++    private static let maximumDimension: CGFloat = 2048
++
++    static func encode(_ image: UIImage) -> (image: UIImage, data: Data)? {
++        var targetSize = fittedSize(for: image.size, maximumDimension: maximumDimension)
++
++        for _ in 0..<5 {
++            let format = UIGraphicsImageRendererFormat.default()
++            format.scale = 1
++            let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
++            let normalizedImage = renderer.image { _ in
++                image.draw(in: CGRect(origin: .zero, size: targetSize))
++            }
++
++            for quality in [0.82, 0.7, 0.55, 0.4, 0.25] {
++                if let data = normalizedImage.jpegData(compressionQuality: quality),
++                   data.count <= LoopWiseMealCaptureDraft.maximumPhotoBytes
++                {
++                    return (normalizedImage, data)
++                }
++            }
++
++            targetSize = CGSize(
++                width: max(1, floor(targetSize.width * 0.75)),
++                height: max(1, floor(targetSize.height * 0.75))
++            )
++        }
++
++        return nil
++    }
++
++    private static func fittedSize(for size: CGSize, maximumDimension: CGFloat) -> CGSize {
++        let largestDimension = max(size.width, size.height)
++        guard largestDimension > 0 else {
++            return CGSize(width: 1, height: 1)
++        }
++        let scale = min(1, maximumDimension / largestDimension)
++        return CGSize(
++            width: max(1, floor(size.width * scale)),
++            height: max(1, floor(size.height * scale))
++        )
++    }
++}
++
++protocol LoopWiseMealCaptureEnqueuing {
++    func enqueue(_ draft: LoopWiseMealCaptureDraft, for carbEntry: StoredCarbEntry)
++}
++
++struct LoopWiseMealCaptureStatus: Equatable {
++    var pendingCount: Int
++    var failedCount: Int
++    var quarantinedCount: Int
++    var storageNeedsAttention: Bool
++    var message: String
++}
++
++enum LoopWiseMealCaptureConfigurationError: LocalizedError {
++    case invalidURL
++    case missingToken
++    case keychain(OSStatus)
++
++    var errorDescription: String? {
++        switch self {
++        case .invalidURL:
++            return "Enter a valid HTTPS LoopWise address."
++        case .missingToken:
++            return "Enter the write-only meal upload token from LoopWise."
++        case .keychain:
++            return "The upload token could not be updated securely."
++        }
++    }
++}
++
++final class LoopWiseMealCaptureConfiguration {
++    static let shared = LoopWiseMealCaptureConfiguration()
++
++    private let defaultsKey = "com.loopkit.Loop.loopwiseMealCapture.baseURL"
++    private let keychainService = "com.loopkit.Loop.loopwiseMealCapture"
++    private let keychainAccount = "write-only-upload-token"
++
++    private init() {}
++
++    var baseURLString: String {
++        UserDefaults.standard.string(forKey: defaultsKey) ?? ""
++    }
++
++    var hasToken: Bool {
++        token != nil
++    }
++
++    fileprivate var token: String? {
++        let query: [String: Any] = [
++            kSecClass as String: kSecClassGenericPassword,
++            kSecAttrService as String: keychainService,
++            kSecAttrAccount as String: keychainAccount,
++            kSecReturnData as String: true,
++            kSecMatchLimit as String: kSecMatchLimitOne
++        ]
++        var item: CFTypeRef?
++        guard SecItemCopyMatching(query as CFDictionary, &item) == errSecSuccess,
++              let data = item as? Data,
++              let value = String(data: data, encoding: .utf8),
++              !value.isEmpty
++        else {
++            return nil
++        }
++        return value
++    }
++
++    var destinationIdentifier: String? {
++        guard let token,
++              let baseURL = try? Self.validatedBaseURL(from: baseURLString)
++        else {
++            return nil
++        }
++        return Self.destinationIdentifier(baseURL: baseURL, token: token)
++    }
++
++    var isConfigured: Bool {
++        destinationIdentifier != nil
++    }
++
++    func connectionWouldChange(baseURLString: String, token newToken: String?) throws -> Bool {
++        let baseURL = try Self.validatedBaseURL(from: baseURLString)
++        let trimmedToken = newToken?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
++        let effectiveToken: String
++        if trimmedToken.isEmpty {
++            guard let token else {
++                throw LoopWiseMealCaptureConfigurationError.missingToken
++            }
++            effectiveToken = token
++        } else {
++            effectiveToken = trimmedToken
++        }
++        return Self.destinationIdentifier(baseURL: baseURL, token: effectiveToken) != destinationIdentifier
++    }
++
++    func save(baseURLString: String, token newToken: String?) throws {
++        let normalizedURL = try Self.validatedBaseURL(from: baseURLString)
++        let trimmedToken = newToken?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
++
++        if !trimmedToken.isEmpty {
++            try saveToken(trimmedToken)
++        } else if token == nil {
++            throw LoopWiseMealCaptureConfigurationError.missingToken
++        }
++
++        UserDefaults.standard.set(normalizedURL.absoluteString, forKey: defaultsKey)
++    }
++
++    func clear() throws {
++        let query: [String: Any] = [
++            kSecClass as String: kSecClassGenericPassword,
++            kSecAttrService as String: keychainService,
++            kSecAttrAccount as String: keychainAccount
++        ]
++        let status = SecItemDelete(query as CFDictionary)
++        guard status == errSecSuccess || status == errSecItemNotFound else {
++            throw LoopWiseMealCaptureConfigurationError.keychain(status)
++        }
++        UserDefaults.standard.removeObject(forKey: defaultsKey)
++    }
++
++    static func validatedBaseURL(from value: String) throws -> URL {
++        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
++        guard var components = URLComponents(string: trimmed),
++              components.scheme?.lowercased() == "https",
++              components.host?.isEmpty == false,
++              components.user == nil,
++              components.password == nil,
++              components.query == nil,
++              components.fragment == nil,
++              components.path.isEmpty || components.path == "/"
++        else {
++            throw LoopWiseMealCaptureConfigurationError.invalidURL
++        }
++        components.path = ""
++        guard let url = components.url else {
++            throw LoopWiseMealCaptureConfigurationError.invalidURL
++        }
++        return url
++    }
++
++    static func destinationIdentifier(baseURL: URL, token: String) -> String {
++        let components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
++        let scheme = components?.scheme?.lowercased() ?? "https"
++        let host = components?.host?.lowercased() ?? ""
++        let port = components?.port
++        let normalizedPort = port == 443 ? nil : port
++        let origin = normalizedPort.map { "\(scheme)://\(host):\($0)" } ?? "\(scheme)://\(host)"
++        let credentialFingerprint = SHA256.hash(data: Data(token.utf8))
++            .map { String(format: "%02x", $0) }
++            .joined()
++        return "\(origin)|\(credentialFingerprint)"
++    }
++
++    private func saveToken(_ token: String) throws {
++        let data = Data(token.utf8)
++        let query: [String: Any] = [
++            kSecClass as String: kSecClassGenericPassword,
++            kSecAttrService as String: keychainService,
++            kSecAttrAccount as String: keychainAccount
++        ]
++        let attributes: [String: Any] = [
++            kSecValueData as String: data,
++            kSecAttrAccessible as String: kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly
++        ]
++
++        let status: OSStatus
++        if SecItemCopyMatching(query as CFDictionary, nil) == errSecSuccess {
++            status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
++        } else {
++            var addQuery = query
++            attributes.forEach { addQuery[$0.key] = $0.value }
++            status = SecItemAdd(addQuery as CFDictionary, nil)
++        }
++        guard status == errSecSuccess else {
++            throw LoopWiseMealCaptureConfigurationError.keychain(status)
++        }
++    }
++}
++
++final class LoopWiseMealCaptureManager: ObservableObject, LoopWiseMealCaptureEnqueuing {
++    static let shared = LoopWiseMealCaptureManager()
++
++    static func destinationMatches(_ saved: String?, current: String?) -> Bool {
++        guard let current else { return false }
++        return saved == current
++    }
++
++    static func isAllowedTerminalResult(_ value: String?) -> Bool {
++        guard let value else { return false }
++        return ["created", "updated", "unchanged", "stale", "discarded"].contains(value)
++    }
++
++    static func boundedRetryAfterDelay(_ value: String?, now: Date = Date()) -> TimeInterval? {
++        guard let value = value?.trimmingCharacters(in: .whitespacesAndNewlines),
++              !value.isEmpty
++        else {
++            return nil
++        }
++
++        let rawDelay: TimeInterval?
++        if let seconds = TimeInterval(value), seconds.isFinite {
++            rawDelay = seconds
++        } else {
++            let formats = [
++                "EEE',' dd MMM yyyy HH':'mm':'ss zzz",
++                "EEEE',' dd-MMM-yy HH':'mm':'ss zzz",
++                "EEE MMM d HH':'mm':'ss yyyy"
++            ]
++            rawDelay = formats.compactMap { format -> TimeInterval? in
++                let formatter = DateFormatter()
++                formatter.locale = Locale(identifier: "en_US_POSIX")
++                formatter.timeZone = TimeZone(secondsFromGMT: 0)
++                formatter.dateFormat = format
++                return formatter.date(from: value)?.timeIntervalSince(now)
++            }.first
++        }
++
++        guard let rawDelay else { return nil }
++        return min(max(rawDelay, 30), 3600)
++    }
++
++    @Published private(set) var status = LoopWiseMealCaptureStatus(
++        pendingCount: 0,
++        failedCount: 0,
++        quarantinedCount: 0,
++        storageNeedsAttention: false,
++        message: "No meal uploads are waiting."
++    )
++
++    private struct Metadata: Codable {
++        let schemaVersion: String
++        let captureId: UUID
++        let carbSyncIdentifier: String
++        let carbSyncVersion: Int
++        let mealStart: Date
++        let note: String
++
++        private enum CodingKeys: String, CodingKey {
++            case schemaVersion
++            case captureId
++            case carbSyncIdentifier
++            case carbSyncVersion
++            case mealStart
++            case note
++        }
++
++        func encode(to encoder: Encoder) throws {
++            var container = encoder.container(keyedBy: CodingKeys.self)
++            try container.encode(schemaVersion, forKey: .schemaVersion)
++            try container.encode(captureId, forKey: .captureId)
++            try container.encode(carbSyncIdentifier, forKey: .carbSyncIdentifier)
++            try container.encode(carbSyncVersion, forKey: .carbSyncVersion)
++            try container.encode(mealStart, forKey: .mealStart)
++            try container.encode(note, forKey: .note)
++        }
++    }
++
++    private struct PendingCapture: Codable {
++        enum State: String, Codable {
++            case queued
++            case failed
++        }
++
++        let metadata: Metadata
++        let destinationIdentifier: String?
++        let photoFilename: String?
++        var attemptCount: Int
++        var nextAttemptDate: Date?
++        var state: State
++    }
++
++    private struct UploadResponse: Decodable {
++        let result: String?
++    }
++
++    private enum QueueStoreError: Error {
++        case createDirectory
++        case protectStorage
++        case readQueue
++        case decodeQueue
++        case encodeQueue
++        case writeQueue
++        case inspectPhoto
++        case removePhoto
++    }
++
++    private let workerQueue = DispatchQueue(label: "com.loopkit.Loop.loopwiseMealCapture", qos: .utility)
++    private let configuration = LoopWiseMealCaptureConfiguration.shared
++    private let fileManager = FileManager.default
++    private let maximumQueueCount = 50
++    private let maximumPersistedPhotoBytes = 48 * 1024 * 1024
++    private var isUploading = false
++    private var activeUploadTask: URLSessionDataTask?
++    private var activeCaptureID: UUID?
++    private var storageErrorMessage: String?
++    private lazy var directoryURL: URL = {
++        let support = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
++        return support.appendingPathComponent("LoopWiseMealCaptureQueue", isDirectory: true)
++    }()
++    private lazy var queueURL = directoryURL.appendingPathComponent("queue.json")
++
++    private init() {
++        workerQueue.async { [weak self] in
++            guard let self else { return }
++            do {
++                try self.ensureDirectory()
++                self.publishStatus()
++            } catch {
++                self.reportStorageError()
++            }
++        }
++    }
++
++    func start() {
++        retryPending()
++    }
++
++    func enqueue(_ draft: LoopWiseMealCaptureDraft, for carbEntry: StoredCarbEntry) {
++        guard draft.hasContent,
++              let syncIdentifier = carbEntry.syncIdentifier,
++              let syncVersion = carbEntry.syncVersion
++        else {
++            return
++        }
++
++        let metadata = Metadata(
++            schemaVersion: "loop-meal-capture-v1",
++            captureId: draft.captureID,
++            carbSyncIdentifier: syncIdentifier,
++            carbSyncVersion: syncVersion,
++            mealStart: carbEntry.startDate,
++            note: draft.note
++        )
++
++        workerQueue.async { [weak self] in
++            guard let self else { return }
++            do {
++                try self.ensureDirectory()
++                var captures = try self.loadQueue()
++                guard let destinationIdentifier = self.configuration.destinationIdentifier else {
++                    self.publishStatus(
++                        captures: captures,
++                        message: "Connect LoopWise before saving optional meal notes or photos."
++                    )
++                    return
++                }
++                guard !captures.contains(where: { $0.metadata.captureId == draft.captureID }) else {
++                    self.processNext()
++                    return
++                }
++                guard captures.count < self.maximumQueueCount else {
++                    self.publishStatus(
++                        captures: captures,
++                        message: "Meal details were not queued because the saved upload limit was reached. Retry or discard uploads in LoopWise settings."
++                    )
++                    return
++                }
++                let photoData: Data?
++                if let photo = draft.photo {
++                    guard let encoded = LoopWiseMealPhotoEncoder.encode(photo) else {
++                        self.publishStatus(
++                            captures: captures,
++                            message: "The meal photo could not be prepared for upload. Choose another photo."
++                        )
++                        return
++                    }
++                    photoData = encoded.data
++                    let currentPhotoBytes = try self.persistedPhotoBytes(for: captures)
++                    guard currentPhotoBytes + encoded.data.count <= self.maximumPersistedPhotoBytes else {
++                        self.publishStatus(
++                            captures: captures,
++                            message: "Meal details were not queued because saved photos reached their storage limit. Retry or discard uploads in LoopWise settings."
++                        )
++                        return
++                    }
++                } else {
++                    photoData = nil
++                }
++
++                var photoFilename: String?
++                if let photoData {
++                    let filename = "\(draft.captureID.uuidString).jpg"
++                    let url = self.directoryURL.appendingPathComponent(filename)
++                    do {
++                        try photoData.write(to: url, options: .atomic)
++                        try self.protectAndExcludeFromBackup(url)
++                        photoFilename = filename
++                    } catch {
++                        try? self.fileManager.removeItem(at: url)
++                        throw QueueStoreError.writeQueue
++                    }
++                }
++
++                captures.append(PendingCapture(
++                    metadata: metadata,
++                    destinationIdentifier: destinationIdentifier,
++                    photoFilename: photoFilename,
++                    attemptCount: 0,
++                    nextAttemptDate: nil,
++                    state: .queued
++                ))
++                do {
++                    try self.saveQueue(captures)
++                } catch {
++                    throw error
++                }
++                self.publishStatus(captures: captures, message: "Meal details are waiting to upload.")
++                self.processNext()
++            } catch {
++                self.reportStorageError()
++            }
++        }
++    }
++
++    func retryPending(includingFailed: Bool = false) {
++        workerQueue.async { [weak self] in
++            guard let self else { return }
++            do {
++                var captures = try self.loadQueue()
++                var changed = false
++                guard let currentDestinationIdentifier = self.configuration.destinationIdentifier else {
++                    self.publishStatus(captures: captures)
++                    return
++                }
++                for index in captures.indices
++                    where Self.destinationMatches(
++                        captures[index].destinationIdentifier,
++                        current: currentDestinationIdentifier
++                    )
++                        && (captures[index].state == .queued || includingFailed)
++                {
++                    captures[index].state = .queued
++                    captures[index].nextAttemptDate = nil
++                    changed = true
++                }
++                if changed {
++                    try self.saveQueue(captures)
++                }
++                self.processNext()
++            } catch {
++                self.reportStorageError()
++            }
++        }
++    }
++
++    func configurationDidChange() {
++        workerQueue.async { [weak self] in
++            guard let self else { return }
++            self.activeUploadTask?.cancel()
++            self.activeUploadTask = nil
++            self.activeCaptureID = nil
++            self.isUploading = false
++            self.publishStatus()
++            self.processNext()
++        }
++    }
++
++    func discardFailedUploads() {
++        workerQueue.async { [weak self] in
++            guard let self else { return }
++            do {
++                let captures = try self.loadQueue()
++                let failed = captures.filter { $0.state == .failed }
++                guard !failed.isEmpty else {
++                    self.publishStatus(captures: captures)
++                    return
++                }
++                let remaining = captures.filter { $0.state != .failed }
++                try self.saveQueue(remaining)
++                try self.removePhotos(for: failed)
++                self.publishStatus(captures: remaining, message: "Failed meal uploads were discarded.")
++                self.processNext()
++            } catch {
++                self.reportStorageError()
++            }
++        }
++    }
++
++    func discardAllSavedUploads() {
++        workerQueue.async { [weak self] in
++            guard let self else { return }
++            do {
++                try self.ensureDirectory()
++                if self.fileManager.fileExists(atPath: self.queueURL.path) {
++                    try self.fileManager.removeItem(at: self.queueURL)
++                }
++                try self.removeAllSafePhotoFiles()
++                self.storageErrorMessage = nil
++                self.publishStatus(captures: [], message: "Saved meal uploads were discarded.")
++            } catch {
++                self.reportStorageError()
++            }
++        }
++    }
++
++    func discardQuarantinedUploads() {
++        workerQueue.async { [weak self] in
++            guard let self else { return }
++            do {
++                let currentDestinationIdentifier = self.configuration.destinationIdentifier
++                let captures = try self.loadQueue()
++                let quarantined = captures.filter {
++                    !Self.destinationMatches(
++                        $0.destinationIdentifier,
++                        current: currentDestinationIdentifier
++                    )
++                }
++                guard !quarantined.isEmpty else {
++                    self.publishStatus(captures: captures)
++                    return
++                }
++                let remaining = captures.filter {
++                    Self.destinationMatches(
++                        $0.destinationIdentifier,
++                        current: currentDestinationIdentifier
++                    )
++                }
++                try self.saveQueue(remaining)
++                try self.removePhotos(for: quarantined)
++                self.publishStatus(
++                    captures: remaining,
++                    message: "Meal uploads for another connection were discarded."
++                )
++                self.processNext()
++            } catch {
++                self.reportStorageError()
++            }
++        }
++    }
++
++    private func processNext() {
++        dispatchPrecondition(condition: .onQueue(workerQueue))
++        guard !isUploading else { return }
++        guard let token = configuration.token,
++              !configuration.baseURLString.isEmpty,
++              let baseURL = try? LoopWiseMealCaptureConfiguration.validatedBaseURL(from: configuration.baseURLString),
++              let currentDestinationIdentifier = configuration.destinationIdentifier
++        else {
++            publishStatus()
++            return
++        }
++
++        let captures: [PendingCapture]
++        do {
++            captures = try loadQueue()
++        } catch {
++            reportStorageError()
++            return
++        }
++        let now = Date()
++        guard let index = captures.firstIndex(where: {
++            Self.destinationMatches(
++                $0.destinationIdentifier,
++                current: currentDestinationIdentifier
++            )
++                && $0.state == .queued
++                && ($0.nextAttemptDate == nil || $0.nextAttemptDate! <= now)
++        }) else {
++            publishStatus()
++            return
++        }
++
++        let capture = captures[index]
++        let endpoint = baseURL.appendingPathComponent("api/mobile/meal-captures")
++        var request = URLRequest(url: endpoint)
++        request.httpMethod = "POST"
++        request.timeoutInterval = 60
++        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
++        request.setValue(capture.metadata.captureId.uuidString, forHTTPHeaderField: "Idempotency-Key")
++
++        let boundary = "LoopWise-\(UUID().uuidString)"
++        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
++        do {
++            request.httpBody = try multipartBody(for: capture, boundary: boundary)
++        } catch {
++            markCaptureFailed(
++                captureID: capture.metadata.captureId,
++                message: "A saved meal upload could not be prepared. Retry or discard it in LoopWise settings."
++            )
++            return
++        }
++        isUploading = true
++        publishStatus(message: "Uploading saved meal details…")
++
++        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
++            self?.workerQueue.async {
++                self?.handleCompletion(
++                    captureID: capture.metadata.captureId,
++                    data: data,
++                    response: response,
++                    error: error
++                )
++            }
++        }
++        activeUploadTask = task
++        activeCaptureID = capture.metadata.captureId
++        task.resume()
++    }
++
++    private func handleCompletion(captureID: UUID, data: Data?, response: URLResponse?, error: Error?) {
++        dispatchPrecondition(condition: .onQueue(workerQueue))
++        if activeCaptureID == captureID {
++            isUploading = false
++            activeUploadTask = nil
++            activeCaptureID = nil
++        }
++        var captures: [PendingCapture]
++        do {
++            captures = try loadQueue()
++        } catch {
++            reportStorageError()
++            return
++        }
++        guard let index = captures.firstIndex(where: { $0.metadata.captureId == captureID }) else {
++            processNext()
++            return
++        }
++
++        let httpResponse = response as? HTTPURLResponse
++        let statusCode = httpResponse?.statusCode
++        let decodedResponse = data.flatMap {
++            try? JSONDecoder().decode(UploadResponse.self, from: $0)
++        }
++        let serverResult = decodedResponse?.result
++        let hasValidTerminalResult = Self.isAllowedTerminalResult(serverResult)
++        let successfulResponse = statusCode == 410
++            || (error == nil && (statusCode == 200 || statusCode == 201) && hasValidTerminalResult)
++        if successfulResponse {
++            let completed = captures.remove(at: index)
++            do {
++                try saveQueue(captures)
++                try removePhotos(for: [completed])
++                let wasDiscarded = statusCode == 410 || serverResult == "discarded"
++                publishStatus(
++                    captures: captures,
++                    message: wasDiscarded
++                        ? "A deleted meal upload was removed from this iPhone."
++                        : "Meal details uploaded to LoopWise."
++                )
++            } catch {
++                reportStorageError()
++            }
++            processNext()
++            return
++        }
++
++        let malformedSuccessResponse = (statusCode == 200 || statusCode == 201)
++            && !hasValidTerminalResult
++        let shouldRetry = error != nil
++            || malformedSuccessResponse
++            || statusCode == 408
++            || statusCode == 429
++            || (statusCode.map { 500...599 ~= $0 } ?? false)
++        if shouldRetry {
++            captures[index].attemptCount += 1
++            let fallbackDelay = min(pow(2, Double(captures[index].attemptCount)) * 30, 3600)
++            let delay: TimeInterval
++            if statusCode == 429 {
++                delay = Self.boundedRetryAfterDelay(
++                    httpResponse?.value(forHTTPHeaderField: "Retry-After")
++                ) ?? fallbackDelay
++            } else {
++                delay = fallbackDelay
++            }
++            captures[index].nextAttemptDate = Date().addingTimeInterval(delay)
++            captures[index].state = .queued
++            do {
++                try saveQueue(captures)
++                publishStatus(captures: captures, message: "Meal upload will retry automatically.")
++            } catch {
++                reportStorageError()
++                return
++            }
++            workerQueue.asyncAfter(deadline: .now() + delay) { [weak self] in
++                self?.processNext()
++            }
++            processNext()
++        } else {
++            captures[index].state = .failed
++            captures[index].nextAttemptDate = nil
++            do {
++                try saveQueue(captures)
++                publishStatus(
++                    captures: captures,
++                    message: "A meal upload needs attention in LoopWise settings."
++                )
++                processNext()
++            } catch {
++                reportStorageError()
++            }
++        }
++    }
++
++    private func markCaptureFailed(captureID: UUID, message: String) {
++        dispatchPrecondition(condition: .onQueue(workerQueue))
++        do {
++            var captures = try loadQueue()
++            guard let index = captures.firstIndex(where: { $0.metadata.captureId == captureID }) else {
++                processNext()
++                return
++            }
++            captures[index].state = .failed
++            captures[index].nextAttemptDate = nil
++            try saveQueue(captures)
++            publishStatus(captures: captures, message: message)
++            processNext()
++        } catch {
++            reportStorageError()
++        }
++    }
++
++    private func multipartBody(for capture: PendingCapture, boundary: String) throws -> Data {
++        let encoder = JSONEncoder()
++        encoder.dateEncodingStrategy = .iso8601
++        let metadataData: Data
++        do {
++            metadataData = try encoder.encode(capture.metadata)
++        } catch {
++            throw QueueStoreError.encodeQueue
++        }
++        var body = Data()
++        body.appendUTF8("--\(boundary)\r\n")
++        body.appendUTF8("Content-Disposition: form-data; name=\"metadata\"\r\n")
++        body.appendUTF8("Content-Type: application/json\r\n\r\n")
++        body.append(metadataData)
++        body.appendUTF8("\r\n")
++
++        if let filename = capture.photoFilename {
++            let photoData: Data
++            do {
++                photoData = try Data(contentsOf: directoryURL.appendingPathComponent(filename))
++            } catch {
++                throw QueueStoreError.readQueue
++            }
++            guard photoData.count <= LoopWiseMealCaptureDraft.maximumPhotoBytes else {
++                throw QueueStoreError.inspectPhoto
++            }
++            body.appendUTF8("--\(boundary)\r\n")
++            body.appendUTF8("Content-Disposition: form-data; name=\"photo\"; filename=\"meal.jpg\"\r\n")
++            body.appendUTF8("Content-Type: image/jpeg\r\n\r\n")
++            body.append(photoData)
++            body.appendUTF8("\r\n")
++        }
++        body.appendUTF8("--\(boundary)--\r\n")
++        return body
++    }
++
++    private func ensureDirectory() throws {
++        do {
++            try fileManager.createDirectory(
++                at: directoryURL,
++                withIntermediateDirectories: true,
++                attributes: [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication]
++            )
++            try protectAndExcludeFromBackup(directoryURL)
++        } catch {
++            throw QueueStoreError.createDirectory
++        }
++    }
++
++    private func loadQueue() throws -> [PendingCapture] {
++        guard fileManager.fileExists(atPath: queueURL.path) else {
++            try cleanSafeOrphanedPhotos(referencedFilenames: [])
++            return []
++        }
++
++        let data: Data
++        do {
++            data = try Data(contentsOf: queueURL)
++        } catch {
++            throw QueueStoreError.readQueue
++        }
++
++        let captures: [PendingCapture]
++        do {
++            captures = try JSONDecoder().decode([PendingCapture].self, from: data)
++        } catch {
++            throw QueueStoreError.decodeQueue
++        }
++        guard captures.count <= maximumQueueCount else {
++            throw QueueStoreError.decodeQueue
++        }
++
++        try cleanSafeOrphanedPhotos(
++            referencedFilenames: Set(captures.compactMap(\.photoFilename))
++        )
++        guard try persistedPhotoBytes(for: captures) <= maximumPersistedPhotoBytes else {
++            throw QueueStoreError.inspectPhoto
++        }
++        return captures
++    }
++
++    private func saveQueue(_ captures: [PendingCapture]) throws {
++        let data: Data
++        do {
++            data = try JSONEncoder().encode(captures)
++        } catch {
++            throw QueueStoreError.encodeQueue
++        }
++        do {
++            try data.write(to: queueURL, options: .atomic)
++            try protectAndExcludeFromBackup(queueURL)
++        } catch {
++            throw QueueStoreError.writeQueue
++        }
++        storageErrorMessage = nil
++    }
++
++    private func persistedPhotoBytes(for captures: [PendingCapture]) throws -> Int {
++        var total = 0
++        for filename in captures.compactMap(\.photoFilename) {
++            guard isSafePhotoFilename(filename) else {
++                throw QueueStoreError.inspectPhoto
++            }
++            let url = directoryURL.appendingPathComponent(filename)
++            let values: URLResourceValues
++            do {
++                values = try url.resourceValues(forKeys: [.fileSizeKey, .isRegularFileKey])
++            } catch {
++                throw QueueStoreError.inspectPhoto
++            }
++            guard values.isRegularFile == true, let fileSize = values.fileSize else {
++                throw QueueStoreError.inspectPhoto
++            }
++            let (nextTotal, overflow) = total.addingReportingOverflow(fileSize)
++            guard !overflow else {
++                throw QueueStoreError.inspectPhoto
++            }
++            total = nextTotal
++        }
++        return total
++    }
++
++    private func cleanSafeOrphanedPhotos(referencedFilenames: Set<String>) throws {
++        guard fileManager.fileExists(atPath: directoryURL.path) else { return }
++        let files: [URL]
++        do {
++            files = try fileManager.contentsOfDirectory(
++                at: directoryURL,
++                includingPropertiesForKeys: [.isRegularFileKey],
++                options: [.skipsHiddenFiles]
++            )
++        } catch {
++            throw QueueStoreError.inspectPhoto
++        }
++
++        for file in files {
++            let filename = file.lastPathComponent
++            guard isSafePhotoFilename(filename), !referencedFilenames.contains(filename) else {
++                continue
++            }
++            do {
++                try fileManager.removeItem(at: file)
++            } catch {
++                throw QueueStoreError.removePhoto
++            }
++        }
++    }
++
++    private func removePhotos(for captures: [PendingCapture]) throws {
++        for filename in captures.compactMap(\.photoFilename) {
++            guard isSafePhotoFilename(filename) else {
++                throw QueueStoreError.inspectPhoto
++            }
++            let url = directoryURL.appendingPathComponent(filename)
++            guard fileManager.fileExists(atPath: url.path) else { continue }
++            do {
++                try fileManager.removeItem(at: url)
++            } catch {
++                throw QueueStoreError.removePhoto
++            }
++        }
++    }
++
++    private func removeAllSafePhotoFiles() throws {
++        guard fileManager.fileExists(atPath: directoryURL.path) else { return }
++        let files: [URL]
++        do {
++            files = try fileManager.contentsOfDirectory(
++                at: directoryURL,
++                includingPropertiesForKeys: nil,
++                options: [.skipsHiddenFiles]
++            )
++        } catch {
++            throw QueueStoreError.inspectPhoto
++        }
++        for file in files where isSafePhotoFilename(file.lastPathComponent) {
++            do {
++                try fileManager.removeItem(at: file)
++            } catch {
++                throw QueueStoreError.removePhoto
++            }
++        }
++    }
++
++    private func isSafePhotoFilename(_ filename: String) -> Bool {
++        let url = URL(fileURLWithPath: filename)
++        return url.pathExtension.lowercased() == "jpg"
++            && UUID(uuidString: url.deletingPathExtension().lastPathComponent) != nil
++            && url.lastPathComponent == filename
++    }
++
++    private func protectAndExcludeFromBackup(_ url: URL) throws {
++        do {
++            try fileManager.setAttributes(
++                [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
++                ofItemAtPath: url.path
++            )
++            var values = URLResourceValues()
++            values.isExcludedFromBackup = true
++            var mutableURL = url
++            try mutableURL.setResourceValues(values)
++        } catch {
++            throw QueueStoreError.protectStorage
++        }
++    }
++
++    private func reportStorageError() {
++        storageErrorMessage = "Saved meal upload storage needs attention. Restart Loop. If this continues, discard saved uploads in LoopWise settings."
++        DispatchQueue.main.async {
++            self.status = LoopWiseMealCaptureStatus(
++                pendingCount: self.status.pendingCount,
++                failedCount: self.status.failedCount,
++                quarantinedCount: self.status.quarantinedCount,
++                storageNeedsAttention: true,
++                message: self.storageErrorMessage ?? "Saved meal upload storage needs attention."
++            )
++        }
++    }
++
++    private func publishStatus(message: String? = nil) {
++        do {
++            publishStatus(captures: try loadQueue(), message: message)
++        } catch {
++            reportStorageError()
++        }
++    }
++
++    private func publishStatus(captures: [PendingCapture], message: String? = nil) {
++        let currentDestinationIdentifier = configuration.destinationIdentifier
++        let matchesCurrentDestination: (PendingCapture) -> Bool = {
++            Self.destinationMatches(
++                $0.destinationIdentifier,
++                current: currentDestinationIdentifier
++            )
++        }
++        let pending = captures.filter {
++            matchesCurrentDestination($0) && $0.state == .queued
++        }.count
++        let failed = captures.filter {
++            matchesCurrentDestination($0) && $0.state == .failed
++        }.count
++        let quarantined = captures.filter { !matchesCurrentDestination($0) }.count
++        let fallback: String
++        if failed > 0 {
++            fallback = "\(failed) meal upload\(failed == 1 ? "" : "s") need attention."
++        } else if pending > 0 {
++            fallback = "\(pending) meal upload\(pending == 1 ? "" : "s") waiting."
++        } else if quarantined > 0 {
++            fallback = "\(quarantined) saved meal upload\(quarantined == 1 ? "" : "s") belong to another connection and will not be sent."
++        } else {
++            fallback = "No meal uploads are waiting."
++        }
++        DispatchQueue.main.async {
++            self.status = LoopWiseMealCaptureStatus(
++                pendingCount: pending,
++                failedCount: failed,
++                quarantinedCount: quarantined,
++                storageNeedsAttention: self.storageErrorMessage != nil,
++                message: self.storageErrorMessage ?? message ?? fallback
++            )
++        }
++    }
++}
++
++private extension Data {
++    mutating func appendUTF8(_ value: String) {
++        append(Data(value.utf8))
++    }
++}
+diff --git a/Loop/Loop/View Models/BolusEntryViewModel.swift b/Loop/Loop/View Models/BolusEntryViewModel.swift
+index a86f20e..fdb22fd 100644
+--- a/Loop/Loop/View Models/BolusEntryViewModel.swift	
++++ b/Loop/Loop/View Models/BolusEntryViewModel.swift	
+@@ -156,6 +156,8 @@ final class BolusEntryViewModel: ObservableObject {
+     private let debounceIntervalMilliseconds: Int
+     private let uuidProvider: () -> String
+     private let carbEntryDateFormatter: DateFormatter
++    private let loopWiseMealCaptureDraft: LoopWiseMealCaptureDraft?
++    private let loopWiseMealCaptureEnqueuer: LoopWiseMealCaptureEnqueuing
+ 
+     var analyticsServicesManager: AnalyticsServicesManager?
+     
+@@ -171,7 +173,9 @@ final class BolusEntryViewModel: ObservableObject {
+         originalCarbEntry: StoredCarbEntry? = nil,
+         potentialCarbEntry: NewCarbEntry? = nil,
+         selectedCarbAbsorptionTimeEmoji: String? = nil,
+-        isManualGlucoseEntryEnabled: Bool = false
++        isManualGlucoseEntryEnabled: Bool = false,
++        loopWiseMealCaptureDraft: LoopWiseMealCaptureDraft? = nil,
++        loopWiseMealCaptureEnqueuer: LoopWiseMealCaptureEnqueuing = LoopWiseMealCaptureManager.shared
+     ) {
+         self.delegate = delegate
+         self.now = now
+@@ -188,6 +192,8 @@ final class BolusEntryViewModel: ObservableObject {
+         self.originalCarbEntry = originalCarbEntry
+         self.potentialCarbEntry = potentialCarbEntry
+         self.selectedCarbAbsorptionTimeEmoji = selectedCarbAbsorptionTimeEmoji
++        self.loopWiseMealCaptureDraft = loopWiseMealCaptureDraft
++        self.loopWiseMealCaptureEnqueuer = loopWiseMealCaptureEnqueuer
+         
+         self.isManualGlucoseEntryEnabled = isManualGlucoseEntryEnabled
+         
+@@ -395,6 +401,7 @@ final class BolusEntryViewModel: ObservableObject {
+ 
+         let activationType = BolusActivationType.activationTypeFor(recommendedAmount: recommendedBolus?.doubleValue(for: .internationalUnit()), bolusAmount: amountToDeliver)
+ 
++        var savedCarbEntryForLoopWise: StoredCarbEntry?
+         if let carbEntry = potentialCarbEntry {
+             if originalCarbEntry == nil {
+                 let interaction = INInteraction(intent: NewCarbEntryIntent(), response: nil)
+@@ -408,6 +415,7 @@ final class BolusEntryViewModel: ObservableObject {
+             if let storedCarbEntry = await saveCarbEntry(carbEntry, replacingEntry: originalCarbEntry) {
+                 self.dosingDecision.carbEntry = storedCarbEntry
+                 self.analyticsServicesManager?.didAddCarbs(source: "Phone", amount: storedCarbEntry.quantity.doubleValue(for: .gram()))
++                savedCarbEntryForLoopWise = storedCarbEntry
+             } else {
+                 self.presentAlert(.carbEntryPersistenceFailure)
+                 return false
+@@ -425,6 +433,15 @@ final class BolusEntryViewModel: ObservableObject {
+                 self.analyticsServicesManager?.didBolus(source: "Phone", units: amountToDeliver)
+             })
+         }
++
++        // This enqueues local documentation only after all Loop persistence and
++        // dosing work above has completed. The enqueuer returns immediately and
++        // performs all file/network work off the therapy path.
++        if let draft = loopWiseMealCaptureDraft,
++           let storedCarbEntry = savedCarbEntryForLoopWise
++        {
++            loopWiseMealCaptureEnqueuer.enqueue(draft, for: storedCarbEntry)
++        }
+         return true
+     }
+ 
+diff --git a/Loop/Loop/View Models/CarbEntryViewModel.swift b/Loop/Loop/View Models/CarbEntryViewModel.swift
+index 37dedee..da1d1fc 100644
+--- a/Loop/Loop/View Models/CarbEntryViewModel.swift	
++++ b/Loop/Loop/View Models/CarbEntryViewModel.swift	
+@@ -71,6 +71,12 @@ final class CarbEntryViewModel: ObservableObject {
+     @Published var absorptionTimeWasEdited = false // if true, selecting an emoji will not alter the absorption time
+     private var absorptionEditIsProgrammatic = false // needed for when absorption time is changed due to favorite food selection, so that absorptionTimeWasEdited does not get set to true
+ 
++    // Optional documentation sent to LoopWise only after the carb entry is saved.
++    // These values never become part of NewCarbEntry or Loop's calculations.
++    @Published var loopWiseMealNote = ""
++    @Published private(set) var loopWiseMealPhoto: UIImage?
++    private let loopWiseMealCaptureID = UUID()
++
+     @Published var absorptionTime: TimeInterval
+     let defaultAbsorptionTimes: CarbStore.DefaultAbsorptionTimes
+     let minAbsorptionTime = LoopConstants.minCarbAbsorptionTime
+@@ -187,7 +193,8 @@ final class CarbEntryViewModel: ObservableObject {
+             screenWidth: UIScreen.main.bounds.width,
+             originalCarbEntry: originalCarbEntry,
+             potentialCarbEntry: updatedCarbEntry,
+-            selectedCarbAbsorptionTimeEmoji: selectedDefaultAbsorptionTimeEmoji
++            selectedCarbAbsorptionTimeEmoji: selectedDefaultAbsorptionTimeEmoji,
++            loopWiseMealCaptureDraft: loopWiseMealCaptureDraft
+         )
+         Task {
+             await viewModel.generateRecommendationAndStartObserving()
+@@ -198,6 +205,31 @@ final class CarbEntryViewModel: ObservableObject {
+         
+         delegate?.analyticsServicesManager.didDisplayBolusScreen()
+     }
++
++    func limitLoopWiseMealNote(_ value: String) {
++        let limited = LoopWiseMealCaptureDraft.limitedNote(value)
++        if limited != value {
++            loopWiseMealNote = limited
++        }
++    }
++
++    func setLoopWiseMealPhoto(_ image: UIImage) {
++        loopWiseMealPhoto = image
++    }
++
++    func removeLoopWiseMealPhoto() {
++        loopWiseMealPhoto = nil
++    }
++
++    private var loopWiseMealCaptureDraft: LoopWiseMealCaptureDraft? {
++        guard originalCarbEntry == nil else { return nil }
++        let draft = LoopWiseMealCaptureDraft(
++            captureID: loopWiseMealCaptureID,
++            note: loopWiseMealNote,
++            photo: loopWiseMealPhoto
++        )
++        return draft.hasContent ? draft : nil
++    }
+     
+     func clearAlert() {
+         self.alert = nil
+diff --git a/Loop/Loop/Views/CarbEntryView.swift b/Loop/Loop/Views/CarbEntryView.swift
+index 5831836..6e2e16f 100644
+--- a/Loop/Loop/Views/CarbEntryView.swift
++++ b/Loop/Loop/Views/CarbEntryView.swift
+@@ -70,6 +70,16 @@ struct CarbEntryView: View, HorizontalSizeClassOverride {
+ 
+                 mainCard
+                     .padding(.top, 8)
++
++                if isNewEntry {
++                    if LoopWiseMealCaptureConfiguration.shared.isConfigured {
++                        LoopWiseMealCaptureDetailsView(viewModel: viewModel)
++                            .padding(.top, 8)
++                    } else {
++                        LoopWiseMealCaptureSetupNotice()
++                            .padding(.top, 8)
++                    }
++                }
+                 
+                 continueActionButton
+                 
+diff --git a/Loop/Loop/Views/LoopWiseMealCaptureViews.swift b/Loop/Loop/Views/LoopWiseMealCaptureViews.swift
+new file mode 100644
+index 0000000..a477eb7
+--- /dev/null
++++ b/Loop/Loop/Views/LoopWiseMealCaptureViews.swift
+@@ -0,0 +1,360 @@
++//
++//  LoopWiseMealCaptureViews.swift
++//  Loop
++//
++
++import PhotosUI
++import SwiftUI
++import UIKit
++
++struct LoopWiseMealCaptureSetupNotice: View {
++    var body: some View {
++        Text("Set up LoopWise meal uploads in Loop Settings to add an optional meal note or photo.")
++            .font(.caption)
++            .foregroundColor(.secondary)
++            .frame(maxWidth: .infinity, alignment: .leading)
++            .padding(.horizontal, 26)
++    }
++}
++
++struct LoopWiseMealCaptureDetailsView: View {
++    @ObservedObject var viewModel: CarbEntryViewModel
++
++    @State private var showsCamera = false
++    @State private var showsPhotoLibrary = false
++
++    var body: some View {
++        VStack(alignment: .leading, spacing: 8) {
++            Text("MEAL DETAILS FOR LOOPWISE")
++                .font(.footnote)
++                .foregroundColor(.secondary)
++                .padding(.horizontal, 26)
++
++            VStack(alignment: .leading, spacing: 12) {
++                Text("What did you eat?")
++                    .font(.headline)
++
++                ZStack(alignment: .topLeading) {
++                    if viewModel.loopWiseMealNote.isEmpty {
++                        Text("Optional note")
++                            .foregroundColor(.secondary)
++                            .padding(.horizontal, 5)
++                            .padding(.vertical, 8)
++                    }
++                    TextEditor(text: $viewModel.loopWiseMealNote)
++                        .frame(minHeight: 74)
++                        .onChange(of: viewModel.loopWiseMealNote) { value in
++                            viewModel.limitLoopWiseMealNote(value)
++                        }
++                }
++
++                Text(
++                    "\(LoopWiseMealCaptureDraft.noteCharacterCount(viewModel.loopWiseMealNote))/\(LoopWiseMealCaptureDraft.maximumNoteLength)"
++                )
++                    .font(.caption)
++                    .foregroundColor(.secondary)
++                    .frame(maxWidth: .infinity, alignment: .trailing)
++
++                if let image = viewModel.loopWiseMealPhoto {
++                    HStack(alignment: .top, spacing: 12) {
++                        Image(uiImage: image)
++                            .resizable()
++                            .scaledToFill()
++                            .frame(width: 88, height: 88)
++                            .clipShape(RoundedRectangle(cornerRadius: 10))
++
++                        Button(role: .destructive) {
++                            viewModel.removeLoopWiseMealPhoto()
++                        } label: {
++                            Label("Remove photo", systemImage: "trash")
++                        }
++                    }
++                }
++
++                HStack {
++                    Button {
++                        showsCamera = true
++                    } label: {
++                        Label("Take Photo", systemImage: "camera")
++                    }
++                    .disabled(!UIImagePickerController.isSourceTypeAvailable(.camera))
++
++                    Spacer()
++
++                    Button {
++                        showsPhotoLibrary = true
++                    } label: {
++                        Label("Choose Photo", systemImage: "photo")
++                    }
++                }
++
++                Text("After the carb entry is saved, LoopWise receives the optional note and photo plus the meal time and carb-entry identifier needed to link the upload. This does not affect Loop calculations or insulin delivery.")
++                    .font(.caption)
++                    .foregroundColor(.secondary)
++            }
++            .padding()
++            .background(CardBackground())
++            .padding(.horizontal)
++        }
++        .sheet(isPresented: $showsCamera) {
++            LoopWiseCameraPicker { image in
++                viewModel.setLoopWiseMealPhoto(image)
++            }
++        }
++        .sheet(isPresented: $showsPhotoLibrary) {
++            LoopWisePhotoLibraryPicker { image in
++                viewModel.setLoopWiseMealPhoto(image)
++            }
++        }
++    }
++}
++
++struct LoopWiseMealCaptureSettingsView: View {
++    @ObservedObject private var manager = LoopWiseMealCaptureManager.shared
++
++    @State private var baseURL: String
++    @State private var token = ""
++    @State private var message: String?
++    @State private var showsDisconnectConfirmation = false
++    @State private var showsConnectionChangeConfirmation = false
++    @State private var showsDiscardFailedConfirmation = false
++    @State private var showsDiscardQuarantinedConfirmation = false
++    @State private var showsDiscardAllConfirmation = false
++
++    private let configuration = LoopWiseMealCaptureConfiguration.shared
++
++    init() {
++        _baseURL = State(initialValue: LoopWiseMealCaptureConfiguration.shared.baseURLString)
++    }
++
++    var body: some View {
++        Form {
++            Section(
++                header: Text("Connection"),
++                footer: Text("Use the HTTPS address and write-only meal upload token from LoopWise. The token is stored in the iPhone Keychain.")
++            ) {
++                TextField("https://loopwise.example.com", text: $baseURL)
++                    .textContentType(.URL)
++                    .keyboardType(.URL)
++                    .textInputAutocapitalization(.never)
++                    .disableAutocorrection(true)
++
++                SecureField(
++                    configuration.hasToken ? "Token saved — leave blank to keep it" : "Write-only upload token",
++                    text: $token
++                )
++                .textContentType(.password)
++                .textInputAutocapitalization(.never)
++                .disableAutocorrection(true)
++
++                Button("Save connection") {
++                    save()
++                }
++
++                if configuration.hasToken || !configuration.baseURLString.isEmpty {
++                    Button("Disconnect LoopWise", role: .destructive) {
++                        showsDisconnectConfirmation = true
++                    }
++                }
++            }
++
++            Section(header: Text("Upload status")) {
++                Text(manager.status.message)
++                if manager.status.pendingCount > 0 {
++                    Button("Retry now") {
++                        manager.retryPending()
++                    }
++                }
++                if manager.status.failedCount > 0 {
++                    Button("Retry failed upload") {
++                        manager.retryPending(includingFailed: true)
++                    }
++                    Button("Discard failed uploads", role: .destructive) {
++                        showsDiscardFailedConfirmation = true
++                    }
++                }
++                if manager.status.quarantinedCount > 0 {
++                    Button("Discard uploads for another connection", role: .destructive) {
++                        showsDiscardQuarantinedConfirmation = true
++                    }
++                }
++                if manager.status.storageNeedsAttention {
++                    Button("Discard all saved uploads", role: .destructive) {
++                        showsDiscardAllConfirmation = true
++                    }
++                }
++            }
++
++            if let message {
++                Section {
++                    Text(message)
++                }
++            }
++        }
++        .navigationTitle("LoopWise")
++        .alert("Disconnect LoopWise?", isPresented: $showsDisconnectConfirmation) {
++            Button("Cancel", role: .cancel) {}
++            Button("Disconnect", role: .destructive) {
++                disconnect()
++            }
++        } message: {
++            Text("This removes the saved address and upload token. Saved meal uploads remain quarantined on this iPhone and cannot be sent to another connection. It does not change Loop or delete carb entries.")
++        }
++        .alert("Change LoopWise connection?", isPresented: $showsConnectionChangeConfirmation) {
++            Button("Cancel", role: .cancel) {}
++            Button("Change Connection") {
++                saveConfirmedConnection()
++            }
++        } message: {
++            Text("Existing saved meal uploads will remain quarantined for the original connection and will not be sent to the new one. You can reconnect to the original connection or discard them.")
++        }
++        .alert("Discard failed uploads?", isPresented: $showsDiscardFailedConfirmation) {
++            Button("Cancel", role: .cancel) {}
++            Button("Discard", role: .destructive) {
++                manager.discardFailedUploads()
++            }
++        } message: {
++            Text("This permanently deletes the saved notes and photos for failed uploads. It does not delete carb entries.")
++        }
++        .alert("Discard uploads for another connection?", isPresented: $showsDiscardQuarantinedConfirmation) {
++            Button("Cancel", role: .cancel) {}
++            Button("Discard", role: .destructive) {
++                manager.discardQuarantinedUploads()
++            }
++        } message: {
++            Text("This permanently deletes quarantined notes and photos saved for a different LoopWise connection. It does not delete carb entries.")
++        }
++        .alert("Discard all saved uploads?", isPresented: $showsDiscardAllConfirmation) {
++            Button("Cancel", role: .cancel) {}
++            Button("Discard All", role: .destructive) {
++                manager.discardAllSavedUploads()
++            }
++        } message: {
++            Text("Use this only if saved upload storage cannot be read. It permanently deletes queued notes and photos but does not delete carb entries.")
++        }
++    }
++
++    private func save() {
++        do {
++            let hasSavedUploads = manager.status.pendingCount
++                + manager.status.failedCount
++                + manager.status.quarantinedCount > 0
++                || manager.status.storageNeedsAttention
++            if hasSavedUploads,
++               try configuration.connectionWouldChange(baseURLString: baseURL, token: token)
++            {
++                showsConnectionChangeConfirmation = true
++            } else {
++                saveConfirmedConnection()
++            }
++        } catch {
++            message = error.localizedDescription
++        }
++    }
++
++    private func saveConfirmedConnection() {
++        do {
++            try configuration.save(baseURLString: baseURL, token: token)
++            baseURL = configuration.baseURLString
++            token = ""
++            message = "LoopWise connection saved."
++            manager.configurationDidChange()
++            manager.retryPending()
++        } catch {
++            message = error.localizedDescription
++        }
++    }
++
++    private func disconnect() {
++        do {
++            try configuration.clear()
++            baseURL = ""
++            token = ""
++            message = "LoopWise disconnected. Saved meal uploads remain protected on this iPhone."
++            manager.configurationDidChange()
++        } catch {
++            message = error.localizedDescription
++        }
++    }
++}
++
++private struct LoopWiseCameraPicker: UIViewControllerRepresentable {
++    let completion: (UIImage) -> Void
++
++    func makeCoordinator() -> Coordinator {
++        Coordinator(completion: completion)
++    }
++
++    func makeUIViewController(context: Context) -> UIImagePickerController {
++        let controller = UIImagePickerController()
++        controller.sourceType = .camera
++        controller.delegate = context.coordinator
++        return controller
++    }
++
++    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
++
++    final class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
++        let completion: (UIImage) -> Void
++
++        init(completion: @escaping (UIImage) -> Void) {
++            self.completion = completion
++        }
++
++        func imagePickerController(
++            _ picker: UIImagePickerController,
++            didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
++        ) {
++            if let image = info[.originalImage] as? UIImage {
++                completion(image)
++            }
++            picker.dismiss(animated: true)
++        }
++
++        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
++            picker.dismiss(animated: true)
++        }
++    }
++}
++
++private struct LoopWisePhotoLibraryPicker: UIViewControllerRepresentable {
++    let completion: (UIImage) -> Void
++
++    func makeCoordinator() -> Coordinator {
++        Coordinator(completion: completion)
++    }
++
++    func makeUIViewController(context: Context) -> PHPickerViewController {
++        var configuration = PHPickerConfiguration(photoLibrary: .shared())
++        configuration.filter = .images
++        configuration.selectionLimit = 1
++        let controller = PHPickerViewController(configuration: configuration)
++        controller.delegate = context.coordinator
++        return controller
++    }
++
++    func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {}
++
++    final class Coordinator: NSObject, PHPickerViewControllerDelegate {
++        let completion: (UIImage) -> Void
++
++        init(completion: @escaping (UIImage) -> Void) {
++            self.completion = completion
++        }
++
++        func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
++            picker.dismiss(animated: true)
++            guard let provider = results.first?.itemProvider,
++                  provider.canLoadObject(ofClass: UIImage.self)
++            else {
++                return
++            }
++            provider.loadObject(ofClass: UIImage.self) { object, _ in
++                guard let image = object as? UIImage else { return }
++                DispatchQueue.main.async {
++                    self.completion(image)
++                }
++            }
++        }
++    }
++}
+diff --git a/Loop/Loop/Views/SettingsView.swift b/Loop/Loop/Views/SettingsView.swift
+index aa0da33..170760f 100644
+--- a/Loop/Loop/Views/SettingsView.swift
++++ b/Loop/Loop/Views/SettingsView.swift
+@@ -84,6 +84,7 @@ public struct SettingsView: View {
+                     if FeatureFlags.allowExperimentalFeatures {
+                         favoriteFoodsSection
+                     }
++                    loopWiseMealCaptureSection
+                     if (viewModel.pumpManagerSettingsViewModel.isTestingDevice || viewModel.cgmManagerSettingsViewModel.isTestingDevice) && viewModel.showDeleteTestData {
+                         deleteDataSection
+                     }
+@@ -376,6 +377,19 @@ extension SettingsView {
+                         descriptiveText: "Simplify Carb Entry")
+         }
+     }
++
++    private var loopWiseMealCaptureSection: some View {
++        Section(header: SectionHeader(label: "LoopWise")) {
++            NavigationLink(destination: LoopWiseMealCaptureSettingsView()) {
++                VStack(alignment: .leading, spacing: 4) {
++                    Text("Meal photo upload")
++                    Text("Send optional meal notes and photos after carb entries are saved")
++                        .font(.caption)
++                        .foregroundColor(.secondary)
++                }
++            }
++        }
++    }
+     
+     private var cgmChoices: [ActionSheet.Button] {
+         var result = viewModel.cgmManagerSettingsViewModel.availableDevices
+diff --git a/Loop/LoopTests/LoopWiseMealCaptureTests.swift b/Loop/LoopTests/LoopWiseMealCaptureTests.swift
+new file mode 100644
+index 0000000..10d734c
+--- /dev/null
++++ b/Loop/LoopTests/LoopWiseMealCaptureTests.swift
+@@ -0,0 +1,116 @@
++//
++//  LoopWiseMealCaptureTests.swift
++//  LoopTests
++//
++
++import XCTest
++import UIKit
++@testable import Loop
++
++final class LoopWiseMealCaptureTests: XCTestCase {
++    func testMealNoteIsCappedAtFiveHundredCharacters() {
++        let draft = LoopWiseMealCaptureDraft(
++            note: String(repeating: "a", count: 501),
++            photo: nil
++        )
++
++        XCTAssertEqual(500, draft.note.count)
++        XCTAssertTrue(draft.hasContent)
++    }
++
++    func testMealNoteIsSafeForUTF16AndUTF8ServerLimits() {
++        let draft = LoopWiseMealCaptureDraft(
++            note: String(repeating: "😀", count: 300),
++            photo: nil
++        )
++
++        XCTAssertLessThanOrEqual(draft.note.unicodeScalars.count, 500)
++        XCTAssertLessThanOrEqual(draft.note.utf16.count, 500)
++        XCTAssertLessThanOrEqual(draft.note.utf8.count, 3500)
++        XCTAssertEqual(draft.note.utf16.count, LoopWiseMealCaptureDraft.noteCharacterCount(draft.note))
++    }
++
++    func testWhitespaceOnlyNoteDoesNotCreateContent() {
++        let draft = LoopWiseMealCaptureDraft(note: " \n ", photo: nil)
++
++        XCTAssertFalse(draft.hasContent)
++    }
++
++    func testPhotoCreatesContentWithoutNote() {
++        let draft = LoopWiseMealCaptureDraft(note: "", photo: UIImage())
++
++        XCTAssertTrue(draft.hasContent)
++    }
++
++    func testMealPhotoEncodingUsesBoundedPixelAndByteSizes() throws {
++        let source = UIGraphicsImageRenderer(size: CGSize(width: 3000, height: 2400)).image { context in
++            UIColor.orange.setFill()
++            context.cgContext.fill(CGRect(x: 0, y: 0, width: 3000, height: 2400))
++        }
++
++        let encoded = try XCTUnwrap(LoopWiseMealPhotoEncoder.encode(source))
++
++        XCTAssertLessThanOrEqual(encoded.image.cgImage?.width ?? .max, 2048)
++        XCTAssertLessThanOrEqual(encoded.image.cgImage?.height ?? .max, 2048)
++        XCTAssertLessThanOrEqual(encoded.data.count, LoopWiseMealCaptureDraft.maximumPhotoBytes)
++    }
++
++    func testConfigurationRequiresHTTPS() throws {
++        XCTAssertThrowsError(
++            try LoopWiseMealCaptureConfiguration.validatedBaseURL(from: "http://loopwise.example.com")
++        )
++        XCTAssertEqual(
++            try LoopWiseMealCaptureConfiguration.validatedBaseURL(from: "https://loopwise.example.com/").absoluteString,
++            "https://loopwise.example.com"
++        )
++        XCTAssertThrowsError(
++            try LoopWiseMealCaptureConfiguration.validatedBaseURL(from: "https://loopwise.example.com/subpath")
++        )
++    }
++
++    func testDestinationIdentifierBindsCanonicalOriginAndCredential() throws {
++        let canonical = try LoopWiseMealCaptureConfiguration.validatedBaseURL(
++            from: "https://LoopWise.Example.com:443"
++        )
++        let sameOrigin = try LoopWiseMealCaptureConfiguration.validatedBaseURL(
++            from: "https://loopwise.example.com"
++        )
++
++        let first = LoopWiseMealCaptureConfiguration.destinationIdentifier(
++            baseURL: canonical,
++            token: "owner-a-token"
++        )
++        let same = LoopWiseMealCaptureConfiguration.destinationIdentifier(
++            baseURL: sameOrigin,
++            token: "owner-a-token"
++        )
++        let differentCredential = LoopWiseMealCaptureConfiguration.destinationIdentifier(
++            baseURL: sameOrigin,
++            token: "owner-b-token"
++        )
++
++        XCTAssertEqual(first, same)
++        XCTAssertNotEqual(first, differentCredential)
++        XCTAssertFalse(first.contains("owner-a-token"))
++        XCTAssertTrue(LoopWiseMealCaptureManager.destinationMatches(first, current: same))
++        XCTAssertFalse(LoopWiseMealCaptureManager.destinationMatches(first, current: differentCredential))
++        XCTAssertFalse(LoopWiseMealCaptureManager.destinationMatches(nil, current: first))
++        XCTAssertFalse(LoopWiseMealCaptureManager.destinationMatches(nil, current: nil))
++    }
++
++    func testOnlyDocumentedServerResultsAreTerminal() {
++        for result in ["created", "updated", "unchanged", "stale", "discarded"] {
++            XCTAssertTrue(LoopWiseMealCaptureManager.isAllowedTerminalResult(result))
++        }
++        XCTAssertFalse(LoopWiseMealCaptureManager.isAllowedTerminalResult(nil))
++        XCTAssertFalse(LoopWiseMealCaptureManager.isAllowedTerminalResult(""))
++        XCTAssertFalse(LoopWiseMealCaptureManager.isAllowedTerminalResult("ok"))
++    }
++
++    func testRetryAfterIsBounded() {
++        XCTAssertEqual(30, LoopWiseMealCaptureManager.boundedRetryAfterDelay("0"))
++        XCTAssertEqual(900, LoopWiseMealCaptureManager.boundedRetryAfterDelay("900"))
++        XCTAssertEqual(3600, LoopWiseMealCaptureManager.boundedRetryAfterDelay("99999"))
++        XCTAssertNil(LoopWiseMealCaptureManager.boundedRetryAfterDelay("not-a-delay"))
++    }
++}
+diff --git a/Loop/LoopTests/ViewModels/BolusEntryViewModelTests.swift b/Loop/LoopTests/ViewModels/BolusEntryViewModelTests.swift
+index 7f2c421..2e89f96 100644
+--- a/Loop/LoopTests/ViewModels/BolusEntryViewModelTests.swift
++++ b/Loop/LoopTests/ViewModels/BolusEntryViewModelTests.swift
+@@ -99,7 +99,13 @@ class BolusEntryViewModelTests: XCTestCase {
+         }
+     }
+ 
+-    func setUpViewModel(originalCarbEntry: StoredCarbEntry? = nil, potentialCarbEntry: NewCarbEntry? = nil, selectedCarbAbsorptionTimeEmoji: String? = nil) async {
++    func setUpViewModel(
++        originalCarbEntry: StoredCarbEntry? = nil,
++        potentialCarbEntry: NewCarbEntry? = nil,
++        selectedCarbAbsorptionTimeEmoji: String? = nil,
++        loopWiseMealCaptureDraft: LoopWiseMealCaptureDraft? = nil,
++        loopWiseMealCaptureEnqueuer: LoopWiseMealCaptureEnqueuing = LoopWiseMealCaptureManager.shared
++    ) async {
+         bolusEntryViewModel = BolusEntryViewModel(delegate: delegate,
+                                                   now: { self.now },
+                                                   screenWidth: 512,
+@@ -108,7 +114,9 @@ class BolusEntryViewModelTests: XCTestCase {
+                                                   timeZone: TimeZone(abbreviation: "GMT")!,
+                                                   originalCarbEntry: originalCarbEntry,
+                                                   potentialCarbEntry: potentialCarbEntry,
+-                                                  selectedCarbAbsorptionTimeEmoji: selectedCarbAbsorptionTimeEmoji)
++                                                  selectedCarbAbsorptionTimeEmoji: selectedCarbAbsorptionTimeEmoji,
++                                                  loopWiseMealCaptureDraft: loopWiseMealCaptureDraft,
++                                                  loopWiseMealCaptureEnqueuer: loopWiseMealCaptureEnqueuer)
+         bolusEntryViewModel.authenticationHandler = { _ in return true }
+         
+         bolusEntryViewModel.maximumBolus = HKQuantity(unit: .internationalUnit(), doubleValue: 10)
+@@ -600,6 +608,22 @@ class BolusEntryViewModelTests: XCTestCase {
+         XCTAssertEqual(.manualRecommendationChanged, delegate.enactedBolusActivationType)
+         XCTAssertTrue(saveAndDeliverSuccess)
+     }
++
++    func testMealCaptureIsEnqueuedAfterCarbSaveSucceeds() async throws {
++        let enqueuer = MockLoopWiseMealCaptureEnqueuer()
++        let draft = LoopWiseMealCaptureDraft(note: "Pasta", photo: nil)
++        await setUpViewModel(
++            potentialCarbEntry: mockPotentialCarbEntry,
++            loopWiseMealCaptureDraft: draft,
++            loopWiseMealCaptureEnqueuer: enqueuer
++        )
++        delegate.addCarbEntryResult = .success(mockFinalCarbEntry)
++
++        try await saveAndDeliver(BolusEntryViewModelTests.noBolus)
++
++        XCTAssertEqual(enqueuer.capturedSyncIdentifiers, [mockFinalCarbEntry.syncIdentifier])
++        XCTAssertEqual(enqueuer.notes, ["Pasta"])
++    }
+     
+     func testSaveCarbAndBolusClearsSavedPreMealOverride() async throws {
+         await setUpViewModel(originalCarbEntry: mockOriginalCarbEntry, potentialCarbEntry: mockPotentialCarbEntry)
+@@ -802,6 +826,16 @@ class BolusEntryViewModelTests: XCTestCase {
+ 
+ // MARK: utilities
+ 
++private final class MockLoopWiseMealCaptureEnqueuer: LoopWiseMealCaptureEnqueuing {
++    private(set) var capturedSyncIdentifiers: [String?] = []
++    private(set) var notes: [String] = []
++
++    func enqueue(_ draft: LoopWiseMealCaptureDraft, for carbEntry: StoredCarbEntry) {
++        capturedSyncIdentifiers.append(carbEntry.syncIdentifier)
++        notes.append(draft.note)
++    }
++}
++
+ fileprivate class MockLoopState: LoopState {
+     
+     var carbsOnBoard: CarbValue?

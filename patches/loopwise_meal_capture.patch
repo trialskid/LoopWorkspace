@@ -1469,12 +1469,13 @@ new file mode 100644
 index 0000000..a477eb7
 --- /dev/null
 +++ b/Loop/Loop/Views/LoopWiseMealCaptureViews.swift
-@@ -0,0 +1,360 @@
+@@ -0,0 +1,361 @@
 +//
 +//  LoopWiseMealCaptureViews.swift
 +//  Loop
 +//
 +
++import LoopKitUI
 +import PhotosUI
 +import SwiftUI
 +import UIKit
